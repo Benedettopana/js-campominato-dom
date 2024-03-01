@@ -2,6 +2,9 @@ const gridContainer = document.querySelector('.grid-container');
 // Selezione difficoltà
 const selezione = document.querySelector('.difficulty');
 console.log(selezione.value);
+// selezione.value = 0;
+
+console.log(selezione.value);
 const difficulty = parseInt(selezione.value);
 // btn start
 const btnPlay = document.querySelector('.btn-play');
@@ -60,14 +63,25 @@ function reset(){
   gridContainer.innerHTML = '';
 }
 
+// FACCIO ESPLODERE LE BOMBE
+function boomAllBomb(){
+  for(let i = 0; i < arrayBomb.length; i++){
+    const boomBomb = document.getElementById(arrayBomb[i]);
+    console.log(arrayBomb[i]);
+    boomBomb.classList.add('boom');
+  }
+}
+
 // CREO square
 function getSquare(numero){
   const sq = document.createElement('div');
+  numero++;
+  sq.setAttribute("id", numero);
   sq.className = 'square';
   
   // Proprietà custom
   // console.log(numero);
-  sq._sqID = numero + 1;
+  sq._sqID = numero;
   // const prova = this._sqID;
 
 
@@ -85,9 +99,7 @@ function getSquare(numero){
       alert('Il tuo punteggio è: ' + punteggio);
       //ACCENDO TUTTE LE BOMBE
       // TODO: funzione bombe
-      // for(let i = 1; i<= nSquare; i++){
-        
-      // }
+      boomAllBomb();
     }else{
       // PUNTEGGIO
       punteggio++;
@@ -134,5 +146,5 @@ function getBomb(nSquare){
 
 // Funzione random
 function getRnd(max) {
-  return Math.floor(Math.random() * (max - 0 + 1) ) + 0;
+  return Math.floor(Math.random() * (max - 1 + 1) ) + 1;
 }
