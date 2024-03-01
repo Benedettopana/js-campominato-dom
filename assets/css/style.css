@@ -74,19 +74,21 @@ img{
 
 .boom{
   background-color: rgb(122, 5, 5);
-  
+  background-image: url('../img/ugodeughi.jpg');
+  background-size: contain;
 }
 
 /* ICONA BOMBA */
-.boom::after{
+/* .boom::after{
   content: "\1F4A3";
+  
   padding: 9px;
   vertical-align: middle;
   line-height: 100%;
   font-weight: 900;
   font-size: 3.5rem;
   color: black;
-}
+} */
 
 
 
