@@ -41,6 +41,8 @@ img{
   /* background-color: black; */
   width: 700px;
   aspect-ratio: 1;
+
+  position: absolute;
 }
 
 .square{
@@ -83,6 +85,7 @@ img{
   font-size: 3.5rem;
   color: black;
 }
+
 
 
 

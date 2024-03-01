@@ -9,13 +9,16 @@ const difficulty = parseInt(selezione.value);
 // btn start
 const btnPlay = document.querySelector('.btn-play');
 
+// TOTALE SQUARE
+let totSquare = 0;
 // ARRAY BOMBE
 const arrayBomb = [];
 
 // PUNTEGGIO
 let punteggio = 0;
 // RESET
-
+reset();
+// BOTTONE START
 btnPlay.addEventListener('click', startPlay);
 
 /////////////////////////////////////////////////////////////////////////////////////
@@ -35,6 +38,8 @@ function startPlay(){
     nSquare = 49;
     
   }
+
+  totSquare = nSquare;
   
   
   getBomb(nSquare);
@@ -56,8 +61,6 @@ function startPlay(){
   }
   }
 
-
-
 function reset(){
   console.log(this);
   gridContainer.innerHTML = '';
@@ -65,11 +68,26 @@ function reset(){
 
 // FACCIO ESPLODERE LE BOMBE
 function boomAllBomb(){
+  // const quadrati = document.querySelectorAll('.square');
+  // quadrati.classList.add('clicked');
   for(let i = 0; i < arrayBomb.length; i++){
+    
     const boomBomb = document.getElementById(arrayBomb[i]);
     console.log(arrayBomb[i]);
     boomBomb.classList.add('boom');
+    boomBomb.classList.remove('clicked');
+
   }
+  for(let i = 1; i <= totSquare; i++){
+    
+    const boomBomb = document.getElementById(i);
+    
+    boomBomb.classList.add('clicked');
+    // boomBomb.classList.add('boom');
+    // boomBomb.classList.remove('clicked');
+
+  }
+
 }
 
 // CREO square
@@ -80,10 +98,8 @@ function getSquare(numero){
   sq.className = 'square';
   
   // Proprietà custom
-  // console.log(numero);
-  sq._sqID = numero;
-  // const prova = this._sqID;
 
+  sq._sqID = numero;
 
   sq.addEventListener('click', function(){
     const numero = this._sqID;
@@ -98,7 +114,7 @@ function getSquare(numero){
       // STAMPO IL PUNTEGGIO
       alert('Il tuo punteggio è: ' + punteggio);
       //ACCENDO TUTTE LE BOMBE
-      // TODO: funzione bombe
+      
       boomAllBomb();
     }else{
       // PUNTEGGIO
@@ -107,7 +123,6 @@ function getSquare(numero){
     
   });
   return sq;
-
 }
 
 // Bomb GENERATE
@@ -116,9 +131,6 @@ function getBomb(nSquare){
   const bomb = [];
   let c = 0;
   for(let i = 1; i <= 16; i++){
-    // const extract = getRnd(nSquare);
-    // console.log(extract);
-    // bomb.push(extract);
     console.log(arrayBomb);
     do{
       const extract = getRnd(nSquare);
@@ -142,7 +154,6 @@ function getBomb(nSquare){
   console.log('lunghezza ', bomb.length);
   
 }
-
 
 // Funzione random
 function getRnd(max) {
