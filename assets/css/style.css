@@ -68,6 +68,8 @@ img{
 
 .clicked{
   background-color: #6892d5;
+  /* EVITO CHE CONTI IL CLICK PIÙ VOLTE */
+  pointer-events: none; 
 }
 
 .boom{
