@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script> -->
+
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <title>Griglia Campo Minato</title>
+</head>
+<body class="">
+  <header class="header-color">
+    <div class="container-fluid  d-flex justify-content-between ">
+      <!-- lato sinistro -->
+      <div class="d-flex my-2 ">
+        <div class=" ">
+          <img src="./assets/img/mobile-logo.png" alt="">
+        </div>
+        <div class="">
+          <p class="title fs-2 fw-bolder ">
+            Campo minato
+          </p>
+        </div>
+      </div>
+
+      <!-- lato destro -->
+      <div class="d-flex my-4">
+        <p class="mx-2 my-1 fs-4 ">
+          Difficoltà: 
+        </p>
+        <label class="play d-flex    ">
+          
+          <select class="difficulty form-select  " >
+            <option selected></option>
+            <option value="0">Easy</option>
+            <option value="1">Medium</option>
+            <option value="2">Hard</option>
+          </select>
+          <div class="btn btn-play btn-danger ">PLay</div>
+        </label>
+        
+      </div>
+      
+    </div>
+  </header>
+
+
+  <main>
+    <div class="main-wrapper d-block d-flex justify-content-center align-items-center body-color">
+      <div class="grid-container d-flex flex-wrap ">
+        
+      </div>
+    </div>
+  </main>
+
+  <!-- TODO: AGGIUNGERE TESTO -->
+  <footer class="header-color">
+    <div class="container-fluid">
+      <p class="fs-4 made ">
+        Made with &heartsuit; by <a href="#">Boolean</a>
+      </p>
+    </div>
+  </footer>
+
+
+  <!-- Collegamento JS -->
+  <script src="./js/script.js"></script>
+</body>
+</html>
