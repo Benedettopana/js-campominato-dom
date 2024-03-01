@@ -85,9 +85,9 @@ function getSquare(numero){
       alert('Il tuo punteggio è: ' + punteggio);
       //ACCENDO TUTTE LE BOMBE
       // TODO: funzione bombe
-      for(let i = 1; i<= nSquare; i++){
+      // for(let i = 1; i<= nSquare; i++){
         
-      }
+      // }
     }else{
       // PUNTEGGIO
       punteggio++;
