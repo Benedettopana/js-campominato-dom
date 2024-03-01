@@ -24,6 +24,7 @@ btnPlay.addEventListener('click', startPlay);
 function startPlay(){
   
   reset();
+  gridContainer.classList.toggle('hide');
   let nSquare;
   
   if(difficulty == 0){
@@ -36,6 +37,7 @@ function startPlay(){
     nSquare = 49;
     
   }
+  getBomb(nSquare);
   
   
   
@@ -86,5 +88,40 @@ function getSquare(numero){
 
 }
 
+// Bomb GENERATE
+function getBomb(nSquare){
+  let verify = true;
+  const bomb = [];
+  let c = 0;
+  
+  for(let i = 1; bomb.length < 16; i++){
+    // const extract = getRnd(nSquare);
+    // console.log(extract);
+    // bomb.push(extract);
+    
+    do{
+      const extract = getRnd(nSquare);
+      console.log(extract);
+      if(!bomb.includes(extract)){
+        bomb.push(extract);
+        verify = false;
+        console.log(bomb);
+      }
+      // c++;
+      // if(c == 15){
+      //   verify = false;
+      // }
+
+    }while(verify);
+    console.log('Ciclo n: ', i);
+  }
+  console.log('lunghezza ', bomb.length);
+  
+}
+
+
 
 // Funzione random
+function getRnd(max) {
+  return Math.floor(Math.random() * (max - 0 + 1) ) + 0;
+}

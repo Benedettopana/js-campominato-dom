@@ -28,13 +28,17 @@ img{
   /* aspect-ratio: 1; */
 }
 
+.hide{
+  display: none;
+}
+
 .main-wrapper{
   /* background-color: lightblue; */
   height: calc(100vh - 180px);
 }
 
 .grid-container{
-  background-color: black;
+  /* background-color: black; */
   width: 700px;
   aspect-ratio: 1;
 }
