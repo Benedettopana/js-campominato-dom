@@ -64,6 +64,20 @@ function startPlay(){
 function reset(){
   console.log(this);
   gridContainer.innerHTML = '';
+
+  const prova = document.querySelectorAll('square');
+  prova.innerHTML = '';
+  punteggio = 0;
+
+  for(let i = 0; i < 16; i++){
+    console.log(i);
+    console.log(arrayBomb);
+    arrayBomb.pop();
+    console.log(arrayBomb);
+  }
+  console.log(arrayBomb);
+
+  
 }
 
 // FACCIO ESPLODERE LE BOMBE
