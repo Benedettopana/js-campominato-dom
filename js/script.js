@@ -126,7 +126,12 @@ function getSquare(numero){
     if(arrayBomb.includes(this._sqID)){
       this.classList.add('boom');
       // STAMPO IL PUNTEGGIO
-      alert('Il tuo punteggio è: ' + punteggio);
+      if((punteggio - arrayBomb.length) == totSquare){
+        
+      }else{
+        alert('Perso.... hai totalizzato: ' + punteggio + ' punti.');
+      }
+      
       //ACCENDO TUTTE LE BOMBE
       
       boomAllBomb();
