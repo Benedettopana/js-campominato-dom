@@ -4,18 +4,16 @@ const selezione = document.querySelector('.difficulty');
 console.log(selezione.value);
 const difficulty = parseInt(selezione.value);
 // btn start
-
 const btnPlay = document.querySelector('.btn-play');
 
+// ARRAY BOMBE
+const arrayBomb = [];
+
+// PUNTEGGIO
+let punteggio = 0;
 // RESET
 
-
-
 btnPlay.addEventListener('click', startPlay);
-
-
-
-
 
 /////////////////////////////////////////////////////////////////////////////////////
 //                         FUNZIONI
@@ -24,22 +22,20 @@ btnPlay.addEventListener('click', startPlay);
 function startPlay(){
   
   reset();
-  gridContainer.classList.toggle('hide');
-  let nSquare;
+  // gridContainer.classList.remove('hide');
+  let nSquare = 100;
   
-  if(difficulty == 0){
-    nSquare = 100;
-  
-  }else if(difficulty == 1){
+  if(difficulty == 1){
     nSquare = 81;
     
-  }else{
+  }else if(difficulty == 2){
     nSquare = 49;
     
   }
+  
+  
   getBomb(nSquare);
-  
-  
+  console.log('Array globale bombe: ', arrayBomb);
   
   for(let i= 0; i<nSquare; i++){
     // console.log(i);
@@ -71,8 +67,9 @@ function getSquare(numero){
   
   // Proprietà custom
   // console.log(numero);
-  sq._sqID = numero;
-  const porcodio = this._sqID;
+  sq._sqID = numero + 1;
+  // const prova = this._sqID;
+
 
   sq.addEventListener('click', function(){
     const numero = this._sqID;
@@ -82,8 +79,21 @@ function getSquare(numero){
     // : this.innerHTML = '';
 
     this.classList.add('clicked');
+    if(arrayBomb.includes(this._sqID)){
+      this.classList.add('boom');
+      // STAMPO IL PUNTEGGIO
+      alert('Il tuo punteggio è: ' + punteggio);
+      //ACCENDO TUTTE LE BOMBE
+      // TODO: funzione bombe
+      for(let i = 1; i<= nSquare; i++){
+        
+      }
+    }else{
+      // PUNTEGGIO
+      punteggio++;
+    }
+    
   });
-
   return sq;
 
 }
@@ -93,12 +103,11 @@ function getBomb(nSquare){
   let verify = true;
   const bomb = [];
   let c = 0;
-  
-  for(let i = 1; bomb.length < 16; i++){
+  for(let i = 1; i <= 16; i++){
     // const extract = getRnd(nSquare);
     // console.log(extract);
     // bomb.push(extract);
-    
+    console.log(arrayBomb);
     do{
       const extract = getRnd(nSquare);
       console.log(extract);
@@ -106,11 +115,14 @@ function getBomb(nSquare){
         bomb.push(extract);
         verify = false;
         console.log(bomb);
+        arrayBomb.push(extract);
+      }else{
+        verify = true;
       }
-      // c++;
-      // if(c == 15){
-      //   verify = false;
-      // }
+      c++;
+      if(c == 50){
+        verify = false;
+      }
 
     }while(verify);
     console.log('Ciclo n: ', i);
@@ -118,7 +130,6 @@ function getBomb(nSquare){
   console.log('lunghezza ', bomb.length);
   
 }
-
 
 
 // Funzione random
