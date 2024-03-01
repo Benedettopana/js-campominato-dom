@@ -82,10 +82,8 @@ function reset(){
 
 // FACCIO ESPLODERE LE BOMBE
 function boomAllBomb(){
-  // const quadrati = document.querySelectorAll('.square');
-  // quadrati.classList.add('clicked');
+
   for(let i = 0; i < arrayBomb.length; i++){
-    
     const boomBomb = document.getElementById(arrayBomb[i]);
     console.log(arrayBomb[i]);
     boomBomb.classList.add('boom');
@@ -97,9 +95,6 @@ function boomAllBomb(){
     const boomBomb = document.getElementById(i);
     
     boomBomb.classList.add('clicked');
-    // boomBomb.classList.add('boom');
-    // boomBomb.classList.remove('clicked');
-
   }
 
 }
@@ -117,23 +112,18 @@ function getSquare(numero){
 
   sq.addEventListener('click', function(){
     const numero = this._sqID;
-    
-    // this.innerHTML = (!this.classList.contains('clicked'))
-    // ? this.innerHTML = numero + 1
-    // : this.innerHTML = '';
 
     this.classList.add('clicked');
     if(arrayBomb.includes(this._sqID)){
       this.classList.add('boom');
       // STAMPO IL PUNTEGGIO
       if((punteggio - arrayBomb.length) == totSquare){
-        
+        alert('HAI VINTO!!!!! hai totalizzato: ' + punteggio + ' punti.');
       }else{
         alert('Perso.... hai totalizzato: ' + punteggio + ' punti.');
       }
-      
       //ACCENDO TUTTE LE BOMBE
-      
+
       boomAllBomb();
     }else{
       // PUNTEGGIO
